@@ -11,14 +11,14 @@ const getAllFeedbacks = async (req, res) => {
 };
 
 const addFeedback = async (req, res) => {
-  const { feedbackId, customerId, productName, productId, feedbackMessage } = req.body;
+  const { feedbackId, customerId, productName, feedbackMessage } = req.body;
 
   try {
     const newFeedback = new Feedback({
       feedbackId,
       customerId,
       productName,
-      productId,
+      
       feedbackMessage, // Ensure the field is added here
     });
 
@@ -45,14 +45,13 @@ const getFeedbackById = async (req, res) => {
 
 const updateFeedback = async (req, res) => {
   const feedbackId = req.params.id;
-  const { productName, productId, feedbackMessage } = req.body; // Add feedbackMessage
+  const { productName, feedbackMessage } = req.body; // Add feedbackMessage
 
   try {
     const feedback = await Feedback.findByIdAndUpdate(
       feedbackId,
       {
         productName,
-        productId,
         feedbackMessage, // Include feedbackMessage in the update
       },
       { new: true } // Return the updated document

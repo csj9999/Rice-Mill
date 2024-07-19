@@ -16,10 +16,6 @@ const feedbackSchema = new Schema({
     type: String,
     required: true,
   },
-  productId: {
-    type: String,
-    required: true,
-  },
   feedbackMessage: {
     type: String,
     required: true, // The new required field for feedback messages

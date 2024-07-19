@@ -78,25 +78,26 @@ import HomeNalinda from "./Components/it22331786/Home/Home";
 
 
 //chathumin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import ProfileContainer from './Components/it22306340/ProfileContainer';
+import { AuthProvider } from './Components/it22306340/contexts/AuthContext' ;
+import Profile from "./Components/it22306340/Profile/Profile";
+import CusRegister  from "./Components/it22306340/CusRegister/CusRegister";
+import HomeChathumin from "./Components/it22306340/Home/Home";
+import CusUpdate from "./Components/it22306340/CusUpdate/CusUpdate";
+import OrderDetailsPage from "./Components/it22306340/OrderDetails/OrderDetailsPage";
+import NewOrder from "./Components/it22306340/NewOrder/NewOrder";
+import Login from "./Components/it22306340/Login/Login";
+import UserProfile from "./Components/it22306340/UserProfile/UserProfile";
+import EditOrder from "./Components/it22306340/EditOrder/EditOrder";
+import FeedbackList from "./Components/it22306340/FeedbackList/FeedbackList";
+import AddFeedback from "./Components/it22306340/AddFeedback/AddFeedback";
+import UserUpdate from "./Components/it22306340/UserUpdate/UserUpdate";
+import UserRegister from "./Components/it22306340/UserRegister/UserRegister";
+import CusOrders from "./Components/it22306340/CusOrders/CusOrders";
+import IssueReporting from "./Components/it22306340/IssueReporting/IssueReporting";
+import IssueList from "./Components/it22306340/IssueList/IssueList";
+import CusHome from "./Components/it22319524/cushome"
+import Navbar from "./Components/it22319524/Navbar"
 
 
 
@@ -242,8 +243,10 @@ function App() {
     <div >
       <Router>
       <React.Fragment>
+      <AuthProvider> 
+
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/main" element={<Main />} />
           <Route path="/yevin" element={<HomeYevin />} />
 
           <Route path="/manageLocation" element={<ManageLocation/>} />
@@ -358,27 +361,30 @@ function App() {
 
 
 {/* chathumin */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<Route path="/chathumin" element={<HomeChathumin />} />
+<Route path="/log" element={<Login />} />
+<Route path="/pro" element={<Profile />} />
+<Route path="/ADregi" element={<CusRegister />}/>
+<Route path="/pro/:id" element={<CusUpdate />}/>
+<Route path="/profile-container" element={<ProfileContainer />} /> 
+<Route path="/or" element={<OrderDetailsPage />}/>
+<Route path="/or/:id" element={<EditOrder />} />
+<Route path="/new" element={<NewOrder />}/>
+<Route path="/userp" element={<UserProfile />} />
+<Route path="/userupdate/:id" element={<UserUpdate />} />
+<Route path="/CSregi" element={<UserRegister />}/>
+<Route path="/feed" element={<FeedbackList />} />
+<Route path="/Adfeed/:id" element={<AddFeedback />} />
+<Route path="/cusorder/:id" element={<CusOrders />} />
+<Route path="/issue/:id" element={<IssueReporting />} />
+<Route path="/issue-list" element={<IssueList />} />
+ <Route path='/' element={<CusHome />} />
+<Route path="/Adfeed" element={<AddFeedback />} />
+<Route path="/cusorder" element={<CusOrders />} />
+<Route path='/cushome' element={<CusHome />} /> 
+<Route path="/userp/:id" element={<UserProfile />} /> 
+<Route path='/ador' element={<NewOrder />} />
+<Route path='/cushome/:id' element={<CusHome />} /> 
 
 
 
@@ -478,6 +484,8 @@ function App() {
 
 
         </Routes>
+        </AuthProvider> 
+
       </React.Fragment>
       </Router>
     </div>
